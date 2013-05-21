@@ -8,7 +8,7 @@ Here's an example, based on the first example from the [`sdk/widget` documentati
 
 ```javascript
 require("toolbarwidget").ToolbarWidget({
-    toolbarID: "nav-bar", // <-- This is the only addition
+    toolbarID: "nav-bar", // <-- Place widget on Navigation bar
     id: "mozilla-icon",
     label: "My Mozilla Widget",
     contentURL: "http://www.mozilla.org/favicon.ico"
@@ -16,7 +16,7 @@ require("toolbarwidget").ToolbarWidget({
 ```
 
 `ToolbarWidget` creates a `sdk/widget` instance, moves it to the desired toolbar, and returns the `Widget` instance.  
-This instance has a getter/setter for `toolbarID`. This property is provided for convenience, do not constantly move the button around the interface!
+This instance has a read-only property called `toolbarID`. If you want to move the widget, destroy it and create it again.
 
 ## Installation
 You can add the module globally (in the `packages` directory under the SDK root), to make it available to all of your Jetpack projects,
