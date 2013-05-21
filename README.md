@@ -18,6 +18,33 @@ require("toolbarwidget").ToolbarWidget({
 `ToolbarWidget` creates a `sdk/widget` instance, moves it to the desired toolbar, and returns the `Widget` instance.  
 This instance has a getter/setter for `toolbarID`. This property is provided for convenience, do not constantly move the button around the interface!
 
+## Installation
+You can add the module globally (in the `packages` directory under the SDK root), to make it available to all of your Jetpack projects,
+or add it to a single project (in the `packages` directory under your add-on's root).
+
+The official documentation contains a [tutorial on installing third-party modules](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/adding-menus.html),
+which suggests to download and extract an archive.  
+I strongly recommend to use git for this purpose, because it makes package management *a lot easier*. For example:
+
+```sh
+# Go to the packages directory of the SDK's root.
+cd /opt/addon-sdk/packages
+# Clone the repository (creates a directory "toolbarwidget-jplib")
+git clone git://github.com/Rob--W/toolbarwidget-jplib.git
+# Done! You may want to update and view the documentation...
+addon-sdk && cfx docs
+# Later, when you want to update the package to the latest version...
+cd /opt/addon-sdk/packages/toolbarwidget-jplib
+git pull
+```
+
+After installing the module, declare the dependency in [package.json](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/package-spec.html):
+
+```js
+    ...
+    "dependencies": ["toolbarwidget"],
+    ...
+```
 
 ## Dependencies
 The following standard Jetpack modules were used:
