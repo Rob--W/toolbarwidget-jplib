@@ -1,12 +1,13 @@
 The `toolbarwidget` module enables you to create [widgets](modules/sdk/widget.html) and place it on any toolbar.
 
-The API is identical to [`sdk/widget`](modules/sdk/widget.html). Only the `toolbarID` and `forceMove` properties have been added.
-Only these extra properties are documented here, see the [`sdk/widget` documentation](modules/sdk/widget.html) for the full documentation.
+The API is identical to [`sdk/widget`](modules/sdk/widget.html), with the exception of the new properties listed below.
+See the [`sdk/widget` documentation](modules/sdk/widget.html) for the full documentation.
 
 ## Example ##
 
     require("toolbarwidget").ToolbarWidget({
         toolbarID: "nav-bar", // Place widget on navigation bar
+        height: 32,           // Change height. Default 16px, now at most 32px.
         id: "mozilla-icon",
         label: "My Mozilla Widget",
         contentURL: "http://www.mozilla.org/favicon.ico"
@@ -39,6 +40,11 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
   @prop forceMove {boolean}
     If true, the toolbar will be forced to stick at its position.
 
+  @prop height {number}
+    Optional height in pixels of the widget. If not given, a default height is used.
+    If this value is greater than the height of the toolbar, then the widget's height
+    is reduced to the toolbar's height.
+
 </api>
 <api name="toolbarID">
 @property {string}
@@ -47,5 +53,9 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
 <api name="forceMove">
 @property {boolean}
   If true, the toolbar will be forced to stick at its position.
+</api>
+<api name="height">
+@property {string}
+  The maximum height of the widget. Setting it updates the widget's appearance immediately.
 </api>
 </api>

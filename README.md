@@ -2,7 +2,7 @@
 This Jetpack module extends the `sdk/widget` module with one extra property, `toolbarID`, allowing Firefox Add-on developers to place widgets on toolbars.
 
 ## Usage
-The API is identical to [`sdk/widget`](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html). Only the `toolbarID` property has been added.
+The API is identical to [`sdk/widget`](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html) (only new properties were added).
 
 Here's an example, based on the first example from the [`sdk/widget` documentation](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html#Creation%20and%20Content). The created widget is not placed on the addon bar, but on the navigation bar.
 
@@ -17,6 +17,10 @@ require("toolbarwidget").ToolbarWidget({
 
 `ToolbarWidget` creates a `sdk/widget` instance, moves it to the desired toolbar, and returns the `Widget` instance.  
 This instance has a read-only property called `toolbarID`. If you want to move the widget, destroy it and create it again.
+
+The standard Widget does not support setting the height of a widget. This module does support this feature,
+because there's no point in placing a tiny button on a toolbar. You can choose a preferred height by setting the `height` property.
+The widget's height cannot be bigger than the container's height.
 
 ## Installation
 You can add the module globally (in the `packages` directory under the SDK root), to make it available to all of your Jetpack projects,
