@@ -36,7 +36,7 @@ cd /opt/addon-sdk/packages
 # Clone the repository (creates a directory "toolbarwidget-jplib")
 git clone git://github.com/Rob--W/toolbarwidget-jplib.git
 # Done! You may want to update and view the documentation...
-addon-sdk && cfx docs
+addon-sdk && cfx sdocs
 # Later, when you want to update the package to the latest version...
 cd /opt/addon-sdk/packages/toolbarwidget-jplib
 git pull
@@ -55,6 +55,9 @@ The following standard Jetpack modules were used:
 
 - [`sdk/windows/utils`](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/window/utils.html)
 - [`sdk/widget`](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html)
+
+## Related
+- [`browser-action`](https://github.com/Rob--W/browser-action-jplib) - Jetpack module which brings Google Chrome's `chrome.browserAction` API to Firefox.
 
 ## Credits
 Created by Rob Wu <gwnRob@gmail.com>.  
