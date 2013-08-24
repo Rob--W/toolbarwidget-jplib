@@ -37,8 +37,20 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
     - **TabsToolbar**: The tabs bar.
     - **addon-bar**: The addon bar.
 
+  @prop insertbefore {string,array}
+    Optional. Allows you to specify the ID of the XUL element, before which the widget should be placed.
+    An ID is invalid when the XUL element is not found, or when the XUL element is not an immediate child of the toolbar.
+    When an ID is invalid, the value is ignored and the next ID in the specified array is used.
+    When all IDs are invalid, the widget is placed at the end of the toolbar.
+
+    Example IDs:
+
+    - **unified-back-forward-button**: Back/forward button container.
+    - **urlbar-container**: URL bar container.
+    - **search-container**: Container of search box.
+
   @prop forceMove {boolean}
-    If true, the toolbar will be forced to stick at its position.
+    If true, the widget will be forced to stick at its position within the toolbar.
 
   @prop height {number}
     Optional height in pixels of the widget. If not given, a default height is used.
@@ -49,6 +61,10 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
 <api name="toolbarID">
 @property {string}
   The ID of the toolbar to which you've added the widget.  Read-only.
+</api>
+<api name="insertbefore">
+@property {array}
+  The id of the element which the toolbar widget should be inserted before.  Read-only.
 </api>
 <api name="forceMove">
 @property {boolean}

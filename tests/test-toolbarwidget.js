@@ -7,14 +7,16 @@ const ASYNC_TEST_TIMEOUT = 5000;
 
 function $(id) windowUtils.getMostRecentBrowserWindow().document.getElementById(id)
 
-exports['test widget on toolbar'] = function(assert, done) {
+exports['test widget on nav-bar'] = function(assert, done) {
     let finished = false;
 
     let toolbarID = 'nav-bar';
+    let insertbefore = 'search-container';
     let widgetID = 'mozilla-icon';
     let toolbarWidget;
     var options = {
         toolbarID: toolbarID,
+        insertbefore: insertbefore,
         id: widgetID,
         label: 'My Mozilla Widget',
         contentURL: 'http://www.mozilla.org/favicon.ico',
@@ -25,6 +27,7 @@ exports['test widget on toolbar'] = function(assert, done) {
             let widget = $(toolbarwidget.getWidgetId(widgetID));
             assert.ok(!!widget, 'widget element found');
             assert.ok(toolbar.contains(widget), 'Toolbar contains widget');
+            assert.strictEqual(widget.nextSibling.id, insertbefore, 'Widget inserted before #' + insertbefore);
             finished = true;
             toolbarWidget.destroy();
             done();
