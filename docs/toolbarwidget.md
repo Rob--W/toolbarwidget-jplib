@@ -74,8 +74,4 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
 @property {string}
   The maximum height of the widget. Setting it updates the widget's appearance immediately.
 </api>
-<api name="minHeight">
-@property {string}
-  The current height of the widget (the smallest among the widgets with this ID).  Read-only
-</api>
 </api>
