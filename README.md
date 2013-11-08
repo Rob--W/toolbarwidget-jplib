@@ -1,8 +1,8 @@
 # SDK Widgets on toolbars
-This Jetpack module extends the `sdk/widget` module with one extra property, `toolbarID`, allowing Firefox Add-on developers to place widgets on toolbars.
+This Jetpack module extends the `sdk/widget` module with a few additional properties, allowing Firefox Add-on developers to easily place widgets on toolbars.
 
 ## Usage
-The API is identical to [`sdk/widget`](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html) (only new properties were added).
+The API is identical to [`sdk/widget`](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/modules/sdk/widget.html) (only new properties were added).
 
 Here's an example, based on the first example from the [`sdk/widget` documentation](https://addons.mozilla.org/en-US/developers/docs/sdk/1.14/modules/sdk/widget.html#Creation%20and%20Content). The created widget is not placed on the addon bar, but on the navigation bar.
 
@@ -18,9 +18,18 @@ require("toolbarwidget").ToolbarWidget({
 `ToolbarWidget` creates a `sdk/widget` instance, moves it to the desired toolbar, and returns the `Widget` instance.  
 This instance has a read-only property called `toolbarID`. If you want to move the widget, destroy it and create it again.
 
-The standard Widget does not support setting the height of a widget. This module does support this feature,
-because there's no point in placing a tiny button on a toolbar. You can choose a preferred height by setting the `height` property.
-The widget's height cannot be bigger than the container's height.
+## Quick reference
+See [docs/toolbarwidget.md] for more details. Here is a concise reference for the `ToolbarWidget` constructor:
+
+- `toolbarID` - string. The widget will be put on the toolbar with this ID.
+- `insertBefore - optional string. Put widget before the XUL element with this ID.
+- `forceMove` - optional boolean. Whether to force the widget to be placed at the specified location.
+- `height` - optional number. The height of the widget.
+- `autoShrink` - optional boolean, default `true`. Whether to reduce the widget's height when the specified height exceeds
+   the toolbar's height. When set to true, the user's icon size preference will automatically be respected.
+- `aspectRatio` - optional number. Set this property to force the width to depend on the height (width = height / aspectRatio).
+
+Plus all methods and properties from the [`sdk/widget` module](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/modules/sdk/widget.html)
 
 ## Installation
 You can add the module globally (in the `packages` directory under the SDK root), to make it available to all of your Jetpack projects,
