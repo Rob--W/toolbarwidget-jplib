@@ -53,9 +53,17 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
     If true, the widget will be forced to stick at its position within the toolbar.
 
   @prop height {number}
-    Optional height in pixels of the widget. If not given, a default height is used.
-    If this value is greater than the height of the toolbar, then the widget's height
-    is reduced to the toolbar's height.
+    Optional (maximum) height in pixels of the widget. If not given, the sdk/widget's default height will be used.
+
+  @prop autoShrink {boolean}
+    Optional, default true. Whether to prevent the toolbar from growing in height when the button is added.
+    This is done by decreasing the widget's height. Use media queries to adapt your widget to the correct size.
+    This setting is enforced when the user changes the icon size preferences.
+
+  @prop aspectRatio {number}
+    Optional number. When this number is set, the width of the widget is automatically changed to match the
+    widget's height. This value can only be used when the `height` property is set. When this property is used,
+    the `width` property is useless and will not reflect the actual width of the widget.
 
 </api>
 <api name="toolbarID">
@@ -72,6 +80,6 @@ An object with [all keys from widget](modules/sdk/widget.html#Widget%29options%2
 </api>
 <api name="height">
 @property {string}
-  The maximum height of the widget. Setting it updates the widget's appearance immediately.
+  The (maximum) height of the widget. Setting it updates the widget's appearance immediately.
 </api>
 </api>
