@@ -97,6 +97,7 @@ exports['test widget on toolbar'] = function(assert, done) {
         onAttach: function() {
             let widget = $(toolbarwidget.getWidgetId(widgetID));
             assert.ok(!!widget, 'widget element found');
+            let doc = widget.ownerDocument;
             let iframe = widget.querySelector('iframe');
             assert.ok(!!iframe, 'iframe found within widget');
 
@@ -107,6 +108,7 @@ exports['test widget on toolbar'] = function(assert, done) {
 
             finished = true;
             toolbarWidget.destroy();
+            assert.ok(!doc.contains(widget), 'Widget should be removed from the document');
             done();
         }
     };
